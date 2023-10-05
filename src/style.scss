@@ -21,9 +21,10 @@ a:hover {
 
 body {
   background: var(--color-background-primary);
-
+box-sizing: border-box;
   margin: 0;
   display: flex;
+  justify-content: center;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;

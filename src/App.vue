@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import TextField from "../src/components/ui/text-field.vue";
+
+import SearchBar from "src/components/search-bar.vue";
 </script>
 
 <template>
- <text-field/>
+ <search-bar />
 </template>
 
 <style scoped>
