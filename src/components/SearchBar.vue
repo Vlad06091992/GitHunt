@@ -1,15 +1,8 @@
 <script setup lang="ts">
 
-import iconSearch from 'src/assets/icons8-search.svg'
-
-type Props = {
-  placeholder: string,
-}
-
-const {placeholder} = defineProps<Props>();
-
+import iconSearch from '../assets/icons8-search.svg'
 import {ref} from "vue";
-import Button from "src/components/ui/button.vue";
+import Button from "../../src/components/ui/button.vue";
 
 let value = ref('')
 
@@ -67,9 +60,9 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.buttonContainer{
+.buttonContainer {
   position: absolute;
-  top:10px;
+  top: 10px;
   left: 688px;
 }
 
