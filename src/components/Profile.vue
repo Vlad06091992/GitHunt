@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import {build} from "vite"; '../assets/building-user-svgrepo-com.svg'
+import {build} from "vite";
+
+'../assets/building-user-svgrepo-com.svg'
 
 </script>
 
@@ -14,42 +16,56 @@ import {build} from "vite"; '../assets/building-user-svgrepo-com.svg'
         <p class="nik">@octocat</p>
         <p class="bio"> This profile has no bio</p>
       </div>
-      <div class="data" >
-        <h3 >Joined 25 jan 2011</h3>
+      <div class="data">
+        <h3>Joined 25 jan 2011</h3>
       </div>
-<div class="main">
-<div>
-  <p>Repos</p>
-  <p>8</p>
-</div>
-  <div>
-    <p>Followers</p>
-    <p>3938</p>
-  </div>
-  <div>
-    <p>Following</p>
-    <p>9</p>
-  </div>
-</div>
+      <div class="main">
+        <div>
+          <p>Repos</p>
+          <p>8</p>
+        </div>
+        <div>
+          <p>Followers</p>
+          <p>3938</p>
+        </div>
+        <div>
+          <p>Following</p>
+          <p>9</p>
+        </div>
+      </div>
+      <div class="contacts">
+        <div>
+          <img src="../assets/location-pin-alt-1-svgrepo-com.svg" alt="location"/>
+          <span>San Francisco</span>
+        </div>
+
+        <div>
+          <img src="../assets/web-link-svgrepo-com.svg" alt="location"/>
+          <span>https://github.com</span>
+        </div>
+      </div>
+      <div class="social">
+        <div>
+          <img src="../assets/twitter-3-svgrepo-com.svg" alt="location"/>
+          <span>Not Available</span>
+        </div>
+        <div>
+          <img src="../assets/building-user-svgrepo-com.svg" alt="location"/>
+          <span>@github</span>
+        </div>
+      </div>
     </div>
-    <div class="contacts">
-
-    </div>
-
-
   </div>
 </template>
 
 <style scoped lang="scss">
 .root {
-  gap:10px;
+  gap: 10px;
   color: var(--color-primary);
   display: flex;
   align-items: start;
   width: 800px;
   background: var(--color-background-secondary);
-
-
 
 
   img {
@@ -63,7 +79,7 @@ import {build} from "vite"; '../assets/building-user-svgrepo-com.svg'
     margin: 20px;
   }
 
-  .profileInfo{
+  .profileInfo {
     display: grid;
     width: 75%;
     align-items: start;
@@ -76,41 +92,45 @@ import {build} from "vite"; '../assets/building-user-svgrepo-com.svg'
     gap: 7px;
 
 
-    .personalInfo{
-      grid-area:profile;
-      .name{
+    .personalInfo {
+      grid-area: profile;
+
+      .name {
 
       }
 
-      .nik{
-        color:var(--color-secondary);
+      .nik {
+        color: var(--color-secondary);
       }
 
-      .bio{
-        color:var(--color-thertiary);
+      .bio {
+        color: var(--color-thertiary);
       }
 
     }
 
-    .data{
+    .data {
       text-align: end;
       align-self: start;
       grid-area: data;
     }
 
-    .main{
+    .main {
       display: flex;
       justify-content: space-around;
       grid-area: main;
       background: var(--color-background-primary);
     }
 
+    .contacts {
+      grid-area: contacts;
+    }
 
+    .social {
+      grid-area: social;
+    }
 
   }
-
-
-
 
 
 }
