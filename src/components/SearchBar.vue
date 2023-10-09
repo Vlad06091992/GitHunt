@@ -2,7 +2,7 @@
 
 import iconSearch from '../assets/icons8-search.svg'
 import {ref} from "vue";
-import Button from "../../src/components/ui/button.vue";
+import Button from "../components/ui/Button.vue";
 
 let value = ref('')
 
@@ -21,10 +21,12 @@ let value = ref('')
 <style scoped>
 
 .text-field-root {
+  font-family:inherit ;
   position: relative;
 }
 
 .input {
+  font-family: unset;
   font-size: 20px;
   padding-left: 60px;
   padding-right: 200px;
@@ -32,7 +34,7 @@ let value = ref('')
   outline: none;
 
   &::placeholder {
-    color: var(--color-text)
+    color: var(--color-primary)
   }
 
 }
@@ -50,7 +52,7 @@ input {
   height: 60px;
   border-radius: 4px;
   border: none;
-  color: var(--color-text);
+  color: var(--color-primary);
 }
 
 

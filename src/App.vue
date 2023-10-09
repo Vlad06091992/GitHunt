@@ -1,10 +1,12 @@
 <script setup lang="ts">
 
 import SearchBar from "../src/components/SearchBar.vue";
+import Profile from "../src/components/Profile.vue";
 </script>
 
 <template>
  <search-bar />
+  <profile/>
 </template>
 
 <style scoped>

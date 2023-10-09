@@ -26,15 +26,16 @@ const buttonSize = computed(()=>{
 <style scoped>
 
 button {
+  font-family: unset;
   border: none;
   outline: none;
   cursor: pointer;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 400;
-  color: var(--color-text);
+  color: var(--color-primary);
   transition: transform 0.2s;
-  background: var(--color-button);
+  background: var(--color-secondary);
   &:hover {
     filter: brightness(1.2);
   }
