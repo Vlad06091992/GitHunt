@@ -3,8 +3,26 @@
 import iconSearch from '../assets/icons8-search.svg'
 import {ref} from "vue";
 import Button from "../components/ui/Button.vue";
+import {useStore} from "./../store/store.ts";
+
+import { ElLoading } from 'element-plus'
+const store = useStore()
+
 
 let value = ref('')
+
+const findUser = () => {
+  const loadingInstance =  ElLoading.service({
+    lock: true,
+    text: 'Loading',
+    background: 'rgba(0, 0, 0, 0.7)',
+  })
+  store.fetchUsers(value.value).then(()=>{
+    loadingInstance.close()
+
+  })
+}
+
 
 </script>
 
@@ -13,7 +31,7 @@ let value = ref('')
     <img :src="iconSearch" alt="search" class="icon">
     <input class="input" placeholder="Search GitHub username..." type='text' v-model="value">
     <div class="buttonContainer">
-      <Button title="Search" width="100" height="42"/>
+      <Button title="Search" width="100" @click="findUser" height="42"/>
     </div>
   </div>
 </template>
@@ -21,7 +39,7 @@ let value = ref('')
 <style scoped>
 
 .text-field-root {
-  font-family:inherit ;
+  font-family: inherit;
   position: relative;
 }
 

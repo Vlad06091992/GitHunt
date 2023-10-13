@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import {build} from "vite";
+import {useStore} from "./../store/store.ts";
 
-'../assets/building-user-svgrepo-com.svg'
+const store = useStore()
 
 </script>
 
 <template>
-  <div class="root">
+
+
+
+  <div v-if="store.user.name" class="root">
     <div class="ava">
       <img src="https://cs14.pikabu.ru/post_img/big/2023/02/13/8/1676296225180472502.png">
     </div>
@@ -56,6 +60,7 @@ import {build} from "vite";
       </div>
     </div>
   </div>
+  <div v-else>Find user</div>
 </template>
 
 <style scoped lang="scss">
