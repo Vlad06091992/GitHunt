@@ -17,7 +17,8 @@ const findUser = () => {
     text: 'Loading',
     background: 'rgba(0, 0, 0, 0.7)',
   })
-  store.fetchUsers(value.value).then(()=>{
+  store.fetchUsers(value.value).then((res)=>{
+    console.log(res)
     loadingInstance.close()
 
   })

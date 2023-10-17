@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import {build} from "vite";
 import {useStore} from "./../store/store.ts";
-
+import {storeToRefs} from "pinia";
 const store = useStore()
+
+const{getValidDate,user} = storeToRefs(store)
 
 </script>
 
@@ -10,37 +12,37 @@ const store = useStore()
 
 
 
-  <div v-if="store.user.name" class="root">
+  <div class="root">
     <div class="ava">
-      <img src="https://cs14.pikabu.ru/post_img/big/2023/02/13/8/1676296225180472502.png">
+      <img :src=user.avatar_url>
     </div>
     <div class="profileInfo">
       <div class="personalInfo">
-        <h2 class="name">The octocat</h2>
+        <h2 class="name">{{store.user.login}}</h2>
         <p class="nik">@octocat</p>
         <p class="bio"> This profile has no bio</p>
       </div>
       <div class="data">
-        <h3>Joined 25 jan 2011</h3>
+        <h3>Joined {{getValidDate}}</h3>
       </div>
       <div class="main">
         <div>
           <p>Repos</p>
-          <p>8</p>
+          <p>{{user.public_repos}}</p>
         </div>
         <div>
           <p>Followers</p>
-          <p>3938</p>
+          <p>{{user.followers}}</p>
         </div>
         <div>
           <p>Following</p>
-          <p>9</p>
+          <p>{{user.following}}</p>
         </div>
       </div>
       <div class="contacts">
         <div>
           <img src="../assets/location-pin-alt-1-svgrepo-com.svg" alt="location"/>
-          <span>San Francisco</span>
+          <span>{{user.location}}</span>
         </div>
 
         <div>
@@ -51,16 +53,16 @@ const store = useStore()
       <div class="social">
         <div>
           <img src="../assets/twitter-3-svgrepo-com.svg" alt="location"/>
-          <span>Not Available</span>
+          <span>{{user.twitter_username}}</span>
         </div>
         <div>
           <img src="../assets/building-user-svgrepo-com.svg" alt="location"/>
-          <span>@github</span>
+          <span>{{user.company}}</span>
         </div>
       </div>
     </div>
   </div>
-  <div v-else>Find user</div>
+<!--  <div v-else>Find user</div>-->
 </template>
 
 <style scoped lang="scss">
