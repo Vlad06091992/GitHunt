@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import iconSearch from '../assets/icons8-search.svg'
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import Button from "../components/ui/Button.vue";
 import {useStore} from "./../store/store.ts";
 
@@ -11,6 +11,7 @@ const store = useStore()
 
 let value = ref('')
 
+const isdisabledButton = computed(()=> value.value.length < 1)
 const findUser = () => {
   const loadingInstance =  ElLoading.service({
     lock: true,
@@ -20,9 +21,14 @@ const findUser = () => {
   store.fetchUsers(value.value).then((res)=>{
     console.log(res)
     loadingInstance.close()
-
   })
 }
+
+
+import { ElNotification } from 'element-plus'
+
+
+
 
 
 </script>
@@ -32,7 +38,7 @@ const findUser = () => {
     <img :src="iconSearch" alt="search" class="icon">
     <input class="input" placeholder="Search GitHub username..." type='text' v-model="value">
     <div class="buttonContainer">
-      <Button title="Search" width="100" @click="findUser" height="42"/>
+      <Button :disabled="isdisabledButton" title="Search" width="100" @click="findUser" height="42"/>
     </div>
   </div>
 </template>

@@ -35,6 +35,22 @@ export type UserData = {
     updated_at: string;
 }
 
+export type UserViewData = {
+    login: string;
+    name?: null | string;
+    email?: null | string;
+    company?: null | string;
+    html_url: string;
+    avatar_url: string;
+    created_at: string;
+    bio?: null | string;
+    public_repos: number;
+    followers: number;
+    following: number;
+    location?: null | string;
+    twitter_username?: string;
+}
+
 export type StoreType = {
-    user:UserData
+    user:UserViewData
 }

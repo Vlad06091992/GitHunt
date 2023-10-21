@@ -1,6 +1,8 @@
 import {defineStore} from "pinia";
 import axios from "axios"
 import {StoreType} from "./types.ts";
+import {mapToAppData} from '../utils/mapToAppData.ts'
+import {ElNotification} from "element-plus";
 
 const BASE_URL = 'https://api.github.com/users';
 export const useStore = defineStore("Store", {
@@ -8,37 +10,18 @@ export const useStore = defineStore("Store", {
         return {
             user: {
                 bio: null,
-                type: '',
                 twitter_username: '',
-                blog: '',
                 avatar_url: '',
                 company: '',
                 created_at: '',
-                public_gists: 0,
                 email: '',
-                events_url: '',
                 followers: 0,
-                followers_url: '',
                 following: 0,
-                following_url: '',
-                gists_url: '',
-                gravatar_id: '',
                 login: '',
-                id: 0,
-                hireable: '',
                 html_url: '',
                 name: '',
                 location: '',
-                node_id: '',
-                organizations_url: '',
                 public_repos: 0,
-                received_events_url: '',
-                repos_url: '',
-                site_admin: false,
-                starred_url: '',
-                url: '',
-                subscriptions_url: '',
-                updated_at: ''
             }
         };
     },
@@ -53,12 +36,15 @@ export const useStore = defineStore("Store", {
         async fetchUsers(user: string) {
             try {
                 const data = await axios.get(`${BASE_URL}/${user}`)
-                this.user = data.data
-
+                this.user = mapToAppData(data.data)
+debugger
             } catch (error) {
-
-                alert(error)
-                console.log(error)
+                ElNotification.error({
+                    title: 'Info',
+                    message: 'User not found',
+                    showClose: false,
+                    duration:1000
+                })
             }
         }
     },

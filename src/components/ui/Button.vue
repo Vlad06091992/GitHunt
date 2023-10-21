@@ -4,13 +4,14 @@ import {computed} from "vue";
 type Props = {
   title: string,
   width: string;
-  height:string;
+  height: string;
+  disabled: boolean
 }
 
 // debugger
 
-const {title,height,width} = defineProps<Props>();
-const buttonSize = computed(()=>{
+const {title, height, width} = defineProps<Props>();
+const buttonSize = computed(() => {
   return {
     "width": `${width}px`,
     "height": `${height}px`,
@@ -20,7 +21,7 @@ const buttonSize = computed(()=>{
 </script>
 
 <template>
-  <button class="button" :style="buttonSize">{{ title }}</button>
+  <button :disabled="disabled" :class="[{disabled},'button']" :style="buttonSize">{{ title }}</button>
 </template>
 
 <style scoped>
@@ -36,6 +37,7 @@ button {
   color: var(--color-primary);
   transition: transform 0.2s;
   background: var(--color-secondary);
+
   &:hover {
     filter: brightness(1.2);
   }
@@ -43,6 +45,15 @@ button {
   &:active {
     transform: scale(0.95);
   }
+
+}
+
+.disabled {
+  cursor: default;
+  transform: none;
+  pointer-events: none;
+  opacity: 0.5;
+background: gray;
 }
 
 </style>
