@@ -5,30 +5,26 @@ import {computed, ref} from "vue";
 import Button from "../components/ui/Button.vue";
 import {useStore} from "./../store/store.ts";
 
-import { ElLoading } from 'element-plus'
+import {ElLoading} from 'element-plus'
+
 const store = useStore()
 
 
 let value = ref('')
 
-const isdisabledButton = computed(()=> value.value.length < 1)
+const isdisabledButton = computed(() => value.value.length < 1)
 const findUser = () => {
-  const loadingInstance =  ElLoading.service({
+  store.clearUserData()
+  const loadingInstance = ElLoading.service({
     lock: true,
     text: 'Loading',
     background: 'rgba(0, 0, 0, 0.7)',
   })
-  store.fetchUsers(value.value).then((res)=>{
+  store.fetchUsers(value.value).then((res) => {
     console.log(res)
     loadingInstance.close()
   })
 }
-
-
-import { ElNotification } from 'element-plus'
-
-
-
 
 
 </script>
@@ -48,6 +44,7 @@ import { ElNotification } from 'element-plus'
 .text-field-root {
   font-family: inherit;
   position: relative;
+  margin-bottom: 15px;
 }
 
 .input {

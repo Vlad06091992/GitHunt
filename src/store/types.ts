@@ -52,5 +52,5 @@ export type UserViewData = {
 }
 
 export type StoreType = {
-    user:UserViewData
+    user:UserViewData | null
 }

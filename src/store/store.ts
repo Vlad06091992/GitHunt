@@ -37,16 +37,20 @@ export const useStore = defineStore("Store", {
             try {
                 const data = await axios.get(`${BASE_URL}/${user}`)
                 this.user = mapToAppData(data.data)
-debugger
             } catch (error) {
                 ElNotification.error({
-                    title: 'Info',
+                    // title: 'Info',
                     message: 'User not found',
                     showClose: false,
-                    duration:1000
+                    duration: 2000
                 })
             }
+        },
+
+        clearUserData() {
+            this.user = null
         }
+
     },
 });
 

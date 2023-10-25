@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import {useStore} from "./../store/store.ts";
 import {storeToRefs} from "pinia";
+import InfoItem from "./InfoItem.vue";
 
 const store = useStore()
 
 const {getValidDate, user} = storeToRefs(store)
+
+const locationIcon = "src/assets/location-pin-alt-1-svgrepo-com.svg"
+const githubIcon = "src/assets/web-link-svgrepo-com.svg"
+const twitterIcon = "src/assets/twitter-3-svgrepo-com.svg"
+const companyIcon = "src/assets/building-user-svgrepo-com.svg"
+
 
 </script>
 
@@ -37,25 +44,12 @@ const {getValidDate, user} = storeToRefs(store)
         </div>
       </div>
       <div class="contacts">
-        <div>
-          <img src="../assets/location-pin-alt-1-svgrepo-com.svg" alt="location"/>
-          <span>{{ user.location }}</span>
-        </div>
-
-        <div>
-          <img src="../assets/web-link-svgrepo-com.svg" alt="location"/>
-          <a :href="user.html_url"><span>link to github</span></a>
-        </div>
+        <InfoItem alt-img="user location" :title="user.location" :logoSrc="locationIcon"/>
+        <InfoItem :link="user.html_url" :as-link="true" :title="'link to github'" :logoSrc="githubIcon"/>
       </div>
-      <div class="social">
-        <div>
-          <img src="../assets/twitter-3-svgrepo-com.svg" alt="location"/>
-          <span>{{ user.twitter_username }}</span>
-        </div>
-        <div>
-          <img src="../assets/building-user-svgrepo-com.svg" alt="location"/>
-          <span>{{ user.company }}</span>
-        </div>
+      <div class=" social">
+        <InfoItem :title="user.twitter_username" :logoSrc="twitterIcon"/>
+        <InfoItem :title="user.company" :logoSrc="companyIcon"/>
       </div>
     </div>
   </div>
@@ -92,7 +86,6 @@ const {getValidDate, user} = storeToRefs(store)
       "main  main"   auto
       "contacts social" 100px
       / auto  auto;
-    grid-gap: 20px;
     gap: 7px;
 
 
@@ -128,6 +121,13 @@ const {getValidDate, user} = storeToRefs(store)
 
     .contacts {
       grid-area: contacts;
+    }
+
+    .info_item {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
     }
 
     .social {
