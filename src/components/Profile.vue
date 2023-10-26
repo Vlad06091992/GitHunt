@@ -8,9 +8,10 @@ const store = useStore()
 const {getValidDate, user} = storeToRefs(store)
 
 const locationIcon = "src/assets/location-pin-alt-1-svgrepo-com.svg"
-const githubIcon = "src/assets/web-link-svgrepo-com.svg"
+// const githubIcon = "src/assets/web-link-svgrepo-com.svg"
 const twitterIcon = "src/assets/twitter-3-svgrepo-com.svg"
 const companyIcon = "src/assets/building-user-svgrepo-com.svg"
+const githubIcon = "src/assets/github.svg"
 
 
 </script>
@@ -18,13 +19,13 @@ const companyIcon = "src/assets/building-user-svgrepo-com.svg"
 <template>
   <div class="root">
     <div class="ava">
-      <img :src=user.avatar_url>
+      <img :src=user?.avatar_url>
     </div>
     <div class="profileInfo">
       <div class="personalInfo">
-        <h2 class="name">{{ user.name }}</h2>
-        <p class="nik">{{ `@${user.login}` }}</p>
-        <p class="bio">{{ user.bio }}</p>
+        <h2 class="name">{{ user?.name }}</h2>
+        <p class="nik">{{ `@${user?.login}` }}</p>
+        <p class="bio">{{ user?.bio }}</p>
       </div>
       <div class="data">
         <h3>Joined {{ getValidDate }}</h3>
@@ -32,24 +33,24 @@ const companyIcon = "src/assets/building-user-svgrepo-com.svg"
       <div class="main">
         <div>
           <p>Repos</p>
-          <p>{{ user.public_repos }}</p>
+          <p>{{ user?.public_repos }}</p>
         </div>
         <div>
           <p>Followers</p>
-          <p>{{ user.followers }}</p>
+          <p>{{ user?.followers }}</p>
         </div>
         <div>
           <p>Following</p>
-          <p>{{ user.following }}</p>
+          <p>{{ user?.following }}</p>
         </div>
       </div>
       <div class="contacts">
-        <InfoItem alt-img="user location" :title="user.location" :logoSrc="locationIcon"/>
-        <InfoItem :link="user.html_url" :as-link="true" :title="'link to github'" :logoSrc="githubIcon"/>
+        <InfoItem alt-img="user location" :title="user?.location" :logoSrc="locationIcon"/>
+        <InfoItem :link="user?.html_url" :as-link="true" :title="'link to github'" :logoSrc="githubIcon"/>
       </div>
       <div class=" social">
-        <InfoItem :title="user.twitter_username" :logoSrc="twitterIcon"/>
-        <InfoItem :title="user.company" :logoSrc="companyIcon"/>
+        <InfoItem :title="user?.twitter_username" :logoSrc="twitterIcon"/>
+        <InfoItem :title="user?.company" :logoSrc="companyIcon"/>
       </div>
     </div>
   </div>

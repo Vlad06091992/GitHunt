@@ -2,18 +2,18 @@
 import {computed} from "vue";
 
 type Props = {
-  title:string,
-  logoSrc:string
-  link:string
+  title?:string | null,
+  logoSrc?:string
+  link?:string
   asLink?:boolean
   altImg?:string
 }
 
-const {title, logoSrc,asLink,link} = defineProps<Props>();
+const props = defineProps<Props>();
 
 const titleClass = computed(()=>{
   // debugger
-  return {noTitle:!title}
+  return {noTitle:!props.title}
 })
 
 </script>
@@ -21,8 +21,8 @@ const titleClass = computed(()=>{
 <template>
   <div class="info_item">
     <img :src="logoSrc" :alt="altImg" />
-    <div v-if="asLink"><a :href="link"><span>{{title}}</span></a></div>
-    <div :class="titleClass" v-else style="line-height: 10px">{{title ? title : "no user info provided"}}</div>
+    <div v-if="asLink"><a class="link" :href="link"><span>{{props.title}}</span></a></div>
+    <div :class="titleClass" v-else style="line-height: 10px">{{props.title ? props.title : "no user info provided"}}</div>
   </div>
 </template>
 
@@ -31,6 +31,10 @@ const titleClass = computed(()=>{
 .noTitle{
   color:gray;
   opacity: 0.5;
+}
+
+.link, link:visited{
+  color:white;
 }
 
 .info_item{

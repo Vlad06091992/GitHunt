@@ -13,15 +13,14 @@ const store = useStore()
 let value = ref('')
 
 const isdisabledButton = computed(() => value.value.length < 1)
-const findUser = () => {
-  store.clearUserData()
+const findUser = async () => {
+  // await store.clearUserData()
   const loadingInstance = ElLoading.service({
     lock: true,
     text: 'Loading',
     background: 'rgba(0, 0, 0, 0.7)',
   })
-  store.fetchUsers(value.value).then((res) => {
-    console.log(res)
+  store.fetchUsers(value.value).then(() => {
     loadingInstance.close()
   })
 }
