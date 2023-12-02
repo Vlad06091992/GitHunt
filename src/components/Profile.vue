@@ -7,11 +7,11 @@ const store = useStore()
 
 const {getValidDate, user} = storeToRefs(store)
 
-const locationIcon = "src/assets/location-pin-alt-1-svgrepo-com.svg"
-// const githubIcon = "src/assets/web-link-svgrepo-com.svg"
-const twitterIcon = "src/assets/twitter-3-svgrepo-com.svg"
-const companyIcon = "src/assets/building-user-svgrepo-com.svg"
-const githubIcon = "src/assets/github.svg"
+// const locationIcon = "src/assets/location-pin-alt-1-svgrepo-com.svg"
+const locationIcon = "public/assets/location-pin-alt-1-svgrepo-com.svg"
+const twitterIcon = "public/assets/twitter-3-svgrepo-com.svg"
+const companyIcon = "public/assets/building-user-svgrepo-com.svg"
+const githubIcon = "public/assets/github.svg"
 
 
 </script>

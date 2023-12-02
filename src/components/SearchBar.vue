@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import iconSearch from '../assets/icons8-search.svg'
+import iconSearch from '../../public/assets/icons8-search.svg'
 import {computed, ref} from "vue";
 import Button from "../components/ui/Button.vue";
 import {useStore} from "./../store/store.ts";
