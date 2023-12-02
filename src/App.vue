@@ -14,7 +14,7 @@ const {user} = storeToRefs(store)
 
 <template>
   <search-bar/>
-  <profile v-if="user.login"/>
+  <profile v-if="user?.login"/>
 </template>
 
 <style scoped>

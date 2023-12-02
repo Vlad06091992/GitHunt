@@ -27,8 +27,10 @@ export const useStore = defineStore("Store", {
     },
     getters: {
         getValidDate(state) {
-            const validDate = new Date(state.user.created_at).toDateString().split(" ");
-            return `${validDate[1]} ${validDate[2]} ${validDate[3]}`
+            if (state.user) {
+                const validDate = new Date(state.user.created_at).toDateString().split(" ");
+                return `${validDate[1]} ${validDate[2]} ${validDate[3]}`
+            }
         }
     },
 
