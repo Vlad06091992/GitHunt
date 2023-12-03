@@ -5,10 +5,10 @@ import InfoItem from "./InfoItem.vue";
 const store = useStore()
 
 const {getValidDate, user} = storeToRefs(store)
-
+import twitterIcon from "../assets/twitter-3-svgrepo-com.svg"
 
 const locationIcon = "/public/assets/location-pin-alt-1-svgrepo-com.svg"
-const twitterIcon = "public/assets/twitter-3-svgrepo-com.svg"
+// const twitterIcon = "public/assets/twitter-3-svgrepo-com.svg"
 const companyIcon = "/public/assets/building-user-svgrepo-com.svg"
 const githubIcon = "/public/assets/github.svg"
 
